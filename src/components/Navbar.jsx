@@ -1,9 +1,8 @@
 function Navbar() {
   return (
     <nav className="navbar">
-      InviteCraft
+      <span>InviteCraft</span>
     </nav>
   );
 }
-
 export default Navbar;
