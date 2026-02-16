@@ -1,6 +1,81 @@
-.layout {
-  margin: 23px;
+.app-shell {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
 }
+
+.app-orbit {
+  position: absolute;
+  inset: -120px;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.55;
+  filter: blur(60px);
+  mix-blend-mode: screen;
+}
+
+.app-orbit--left {
+  background: radial-gradient(circle at top left, #facc6b 0%, transparent 55%);
+  animation: orbit-left 22s ease-in-out infinite alternate;
+}
+
+.app-orbit--right {
+  background: radial-gradient(circle at bottom right, #f97316 0%, transparent 55%);
+  animation: orbit-right 26s ease-in-out infinite alternate;
+}
+
+@keyframes orbit-left {
+  from {
+    transform: translate3d(-16px, 10px, 0) scale(1);
+  }
+  to {
+    transform: translate3d(12px, -18px, 0) scale(1.15);
+  }
+}
+
+@keyframes orbit-right {
+  from {
+    transform: translate3d(10px, -12px, 0) scale(1.05);
+  }
+  to {
+    transform: translate3d(-18px, 14px, 0) scale(1.18);
+  }
+}
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+@media (min-width: 960px) {
+  .layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+    align-items: flex-start;
+    gap: 2rem;
+  }
+}
+
+.section-card {
+  background: radial-gradient(circle at top left, #020617 0%, #02010f 60%);
+  border-radius: 1.25rem;
+  padding: 1.5rem 1.75rem;
+  border: 1px solid rgba(250, 204, 21, 0.22);
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.9);
+}
+
+.section-card--stacked {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
 .footer {
-  margin-top: 32px;
+  margin-top: 1.75rem;
+  text-align: center;
+  color: #9ca3af;
+  font-size: 0.85rem;
 }
